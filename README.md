@@ -1,4 +1,4 @@
-# MediaPipe and OpenCV Finger Click Simulator
+# MediaPipe and OpenCV Mause Simulator
 
 This project is a simple demonstration of how to use MediaPipe and OpenCV to create a finger click simulator. The program captures live video from the user's webcam and uses MediaPipe to detect hand landmarks
 
