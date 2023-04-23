@@ -23,6 +23,7 @@ def getLandmarkMaos(resultado):
 
 def getDedosLevantados(landmarks):
     dedos = []
+    dedos.append(landmarks[4].x < landmarks[3].x)
     for ponta_dedo in [8,12,16,20]:
         landmark = landmarks[ponta_dedo]
         landmark_anterior = landmarks[ponta_dedo-2]
@@ -43,10 +44,13 @@ while True:
     if resultado.multi_hand_landmarks:
         landmarks = getLandmarkMaos(resultado)
         dedos = getDedosLevantados(landmarks)
-        if sum(dedos) == 1 and dedo_levantado == False:
+        if dedos[1]:
+            ponta = landmarks[8]
+            gui.moveTo(ponta.x * 1920,ponta.y * 1080)
+        if dedos[0] and dedo_levantado == False:
             gui.click()
             dedo_levantado = True
-        if dedos == [False,False,False,False]:
+        if dedos[0] == False:
             dedo_levantado = False
             
 
